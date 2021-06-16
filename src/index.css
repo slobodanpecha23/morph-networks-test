@@ -1,0 +1,392 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: "Roboto", sans-serif;
+    box-sizing: border-box;
+}
+
+.done {
+    width: 50px;
+    height: 50px;
+}
+
+.number {
+    width: 50px;
+    height: 50px;
+}
+
+.insideCircle {
+    height: 30px;
+    width: 30px;
+    color: #2196f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 2px 4px 2px #d8d8d8;
+    border-radius: 50%;
+}
+
+@keyframes outline {
+    from {
+        stroke-dasharray: 0, 300px;
+    }
+    to {
+        stroke-dasharray: 300px, 300px;
+    }
+}
+
+#outline {
+    animation: 0.38s ease-in outline;
+    transform: rotate(0deg);
+    transform-origin: center;
+}
+
+@keyframes circle {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+
+#white-circle {
+    animation: 0.35s ease-in 0.35s forwards circle;
+    transform: none;
+    transform-origin: center;
+}
+
+@keyframes check {
+    from {
+        stroke-dasharray: 0, 75px;
+    }
+    to {
+        stroke-dasharray: 75px, 75px;
+    }
+}
+
+#check {
+    animation: 0.34s cubic-bezier(0.65, 0, 1, 1) 0.8s forwards check;
+    stroke-dasharray: 0, 75px;
+}
+
+@keyframes check-group {
+    from {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.09);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+#check-group {
+    animation: 0.32s ease-in-out 1.03s check-group;
+    transform-origin: center;
+}
+
+/*================================================================= 
+header style 
+=================================================================*/
+
+.headerContainer {
+    background-color: #2196f3;
+    height: 120px;
+    width: 100%;
+}
+
+.header {
+    height: 120px;
+    color: #ffffff;
+}
+
+.header p {
+    font-size: 14px;
+}
+
+.header h1 {
+    font-size: 20px;
+}
+
+/*================================================================
+button style 
+================================================================*/
+
+button {
+    background-color: #2196f3;
+}
+
+/*================================================================ 
+input field style 
+================================================================*/
+
+.inputBox {
+    width: calc(100% - 50px);
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.inputBox input {
+    width: 100%;
+    height: 100%;
+    color: #2196f3;
+    font-size: 18px;
+    padding-top: 20px;
+    border: none;
+    outline: none;
+}
+
+.inputBox label {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid #f6f6f6;
+    color: #a6a4a2;
+    font-size: 18px;
+}
+
+.inputBox label::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    border-bottom: 3px solid #2196f3;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.contentName {
+    position: absolute;
+    bottom: 5px;
+    left: 0px;
+    transition: all 0.3s ease;
+}
+
+.inputBox input:focus + .labelName .contentName,
+.inputBox input:valid + .labelName .contentName {
+    transform: translateY(-130%);
+    font-size: 14px;
+}
+
+.inputBox input:focus + .labelName::after,
+.inputBox input:valid + .labelName::after {
+    transform: translateX(0%);
+}
+
+/*=============================================================================== 
+radio button style 
+===============================================================================*/
+
+.radioButtonsBox {
+    color: #a09f9f;
+}
+
+.radioButtonsBox p {
+    font-size: 18px;
+    padding-top: 13px;
+}
+
+.radioGroup label {
+    display: block;
+    line-height: 25px;
+}
+
+@keyframes click-wave {
+    0% {
+        height: 25px;
+        width: 25px;
+        opacity: 0.35;
+        position: relative;
+    }
+    100% {
+        height: 200px;
+        width: 200px;
+        margin-left: -80px;
+        margin-top: -80px;
+        opacity: 0;
+    }
+}
+
+.option-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    position: relative;
+    top: 7px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    transition: all 0.15s ease-out 0s;
+    background: #ffffff;
+    border: 1px solid #d9d9d9;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.5rem;
+    outline: none;
+    position: relative;
+    z-index: 1000;
+}
+
+.option-input:checked {
+    background: #46d5b5;
+    border: none;
+}
+.option-input:checked::before {
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    content: "✔";
+    display: inline-block;
+    font-size: 16px;
+    text-align: center;
+    line-height: 25px;
+}
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #46d5b5;
+    content: "";
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.option-input.radio {
+    border-radius: 50%;
+}
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+/*=========================================================================
+ progress bar 
+ ========================================================================*/
+
+.circular {
+    height: 40px;
+    width: 40px;
+    position: relative;
+}
+.circular .inner,
+.circular .outer,
+.circular .circle {
+    position: absolute;
+    z-index: 6;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.circular .inner {
+    top: 50%;
+    left: 50%;
+    height: 32px;
+    width: 32px;
+    margin: -16px 0 0 -16px;
+    background-color: #2196f3;
+    border-radius: 100%;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.circular .circle {
+    z-index: 1;
+    box-shadow: none;
+}
+.circular .numb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+}
+.circular .bar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(177, 169, 169, 0.979);
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 40px, 40px, 20px);
+}
+.circle .bar .progress {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 20px, 40px, 0px);
+}
+.circle .bar .progress,
+.dot span {
+    background: #ffffff;
+}
+.circle .left .progress {
+    z-index: 1;
+    animation: left 4s linear both;
+}
+@keyframes left {
+    100% {
+        transform: rotate(180deg);
+    }
+}
+.circle .right {
+    z-index: 3;
+    transform: rotate(180deg);
+}
+.circle .right .progress {
+    animation: right 4s linear both;
+    animation-delay: 4s;
+}
+@keyframes right {
+    100% {
+        transform: rotate(180deg);
+    }
+}
+.circle .dot {
+    z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    height: 10px;
+    margin-top: -5px;
+    animation: dot 8s linear both;
+    transform-origin: 0% 50%;
+}
+.circle .dot span {
+    position: absolute;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+}
+@keyframes dot {
+    0% {
+        transform: rotate(-90deg);
+    }
+    50% {
+        transform: rotate(90deg);
+        z-index: 4;
+    }
+    100% {
+        transform: rotate(270deg);
+        z-index: 4;
+    }
+}
