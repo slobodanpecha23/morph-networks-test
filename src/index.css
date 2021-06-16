@@ -191,3 +191,11 @@ input field style
     color: #2196f3;
     transition: all 0.3s ease;
 }
+
+button {
+    outline: none !important;
+}
+
+.buttonStyle {
+    outline: none !important;
+}
