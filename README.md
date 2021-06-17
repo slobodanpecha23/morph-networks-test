@@ -1,3 +1,21 @@
+# Morph Networks - Test
+
+For this project I used React as a frontend framework
+
+## Create a form
+
+I made a given form based on this design https://dribbble.com/shots/2371603-Form-Flow
+
+I pulled the colors out with imagecolorpicker https://imagecolorpicker.com/
+
+In this project I use Tailwind css
+
+For the progress bar I used package react-circular-progressbar https://www.npmjs.com/package/react-circular-progressbar
+
+In this project, I created a form that follows a series of animations in cases where we enter data into input fields, and all this is followed by progress bar, that reacts step by step how we enter data.
+
+Whole logic and main content is located in `src/App.js` file
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
