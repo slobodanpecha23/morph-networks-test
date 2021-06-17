@@ -1,3 +1,13 @@
+# Morph Networks - Test
+
+For this project I used React as a frontend framework
+
+## String checker
+
+The function checkStringForParentheses is located in src/App.js
+
+To make it easier to test it out I created design based on Task 1
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
